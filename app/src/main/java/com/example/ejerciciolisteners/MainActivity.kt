@@ -19,21 +19,13 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-
+//No he podidio arrancar el programa porque no he conseguido arrancar el emulador, pero he intentado hacerlo siguiendo el ejemplo que hiciste en clase
 
     private lateinit var boton : Button
     private lateinit var editText : EditText
     private lateinit var imageView: ImageView
-    override fun getLayoutInflater(): LayoutInflater {
-        return super.getLayoutInflater()
-    }
 
-
-    public void setOnClickListener(OnClickListener l) {
-    }
-
-
-    private val textWatcher = object : TextWatcher {
+ private val textWatcher = object : TextWatcher {
 
         @SuppressLint("SetTextI18n")
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -41,26 +33,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         @SuppressLint("SetTextI18n")
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {ç
 
-            if (editText.isFocusable)
-                editText.setText(" ")
-            @RequiresApi(Build.VERSION_CODES.R)
+           //1
             if (boton.isClickable())
                 editText.isActivated
-                boton.isClickable
                 boton.text = "Finalizar"
+            //2
                 boton.isClickable
                 boton.isEnabled
                 boton.text = " "
+
+            // Si esta el usuario hay te borra el texto " "
+            if (editText.isFocusable)
+                editText.setText(" ")
+
+
 
         }
 
         override fun afterTextChanged(p0: Editable?) {
             }
-
-
-
         }
 
 
@@ -77,9 +70,6 @@ class MainActivity : AppCompatActivity() {
 
             if (editText.text.equals("Wayne"))
                 imageView.isActivated
-
-
-
         }
 
 
