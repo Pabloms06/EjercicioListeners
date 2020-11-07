@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EjercicioListeners</string>
+    <string name="enter_name">Introduce tu nombre:</string>
+</resources>
