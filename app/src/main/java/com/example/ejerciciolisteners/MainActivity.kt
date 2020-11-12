@@ -1,82 +1,57 @@
 package com.example.ejerciciolisteners
 
-import android.R
 import android.annotation.SuppressLint
-import android.graphics.PorterDuff
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import android.os.Build
+import android.os.Bundle
 import android.text.Editable
-import android.text.Layout
 import android.text.TextWatcher
-import android.view.LayoutInflater
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
-import androidx.annotation.RequiresApi
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 
 
 class MainActivity : AppCompatActivity() {
+    // Este ejercicio se compone de 2 botones ( + y - ) que al ser pulsados van a sumar o restar
+    // el valor que encontremos en un textView.
 
-//No he podidio arrancar el programa porque no he conseguido arrancar el emulador, pero he intentado hacerlo siguiendo el ejemplo que hiciste en clase
+    // Añade un editText. Cuando el edittext tenga el focus activo, los botones deben cambiar de
+    // color. Cuando lo tenga desactivado, deben volver a su color original.
 
-    private lateinit var boton : Button
-    private lateinit var editText : EditText
-    private lateinit var imageView: ImageView
+    // Si el usuario escribe un número en el editText, entonces el textView debe mostrar ese número
 
- private val textWatcher = object : TextWatcher {
+    // TODO: El número que aparece en textView no puede ser negativo.
 
-        @SuppressLint("SetTextI18n")
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    // TODO: Una vez que has introducido un número en el textView, no puede volver a quedar vacio.
 
+    // Investigar como private var colorOriginal: Int = 0
+
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val button = findViewById<Button>(R.id.boton)
+        val editText = findViewById<EditText>(R.id.editText)
+        val imagen = findViewById<ImageView>(R.id.imagen)
+
+
+        button.setOnClickListener {
+            button.text = "Finalizar"
+            editText.setText("Introduce tu nombre:")
+            if (button.isFocusable)
+                button.isVisible.not()
         }
 
-        @SuppressLint("SetTextI18n")
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {ç
-
-           //1
-            if (boton.isClickable())
-                editText.isActivated
-                boton.text = "Finalizar"
-            //2
-                boton.isClickable
-                boton.isEnabled
-                boton.text = " "
-
-            // Si esta el usuario hay te borra el texto " "
-            if (editText.isFocusable)
-                editText.setText(" ")
-
-
-
+        editText.setOnClickListener{
+            if (editText.equals("Wayne"))
+                imagen.isActivated
         }
-
-        override fun afterTextChanged(p0: Editable?) {
-            }
         }
-
-
-    private val textWatcher2 = object : TextWatcher {
-
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        }
-
-        override fun afterTextChanged(p0: Editable?) {
-
-            if (editText.text.equals("Wayne"))
-                imageView.isActivated
-        }
-
-
-
-    }
-
-
 
 
 
